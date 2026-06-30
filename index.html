@@ -201,7 +201,7 @@
     width:34px; height:8px; background:var(--navy); border-radius:6px;
     z-index:5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.6);
   }
-  .id-top-bar { background:var(--gold); height:34px; display:flex; align-items:center; justify-content:center; padding:0 8px; padding-top:6px; }
+  .id-top-bar { background:var(--gold); height:42px; display:flex; align-items:flex-end; justify-content:center; padding:0 8px 6px; }
   .id-top-bar span { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:1.5px; color:var(--navy); white-space:nowrap; }
   .id-photo-wrap {
     margin:18px auto 10px;
@@ -376,8 +376,38 @@
   .tag, .edu-strip, .id-photo-wrap { transition: transform .25s ease; }
   .viral-visual:hover .play-icon { transform:scale(1.12) rotate(6deg); }
 
-  /* Video plays invisibly behind the waveform UI — full real video, styled controls */
-  .viral-video-hidden { position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
+  /* ===== VISIBLE VIDEO FRAME ===== */
+  .video-frame {
+    position:relative;
+    width:100%;
+    aspect-ratio:16/10;
+    max-height:300px;
+    border-radius:8px;
+    overflow:hidden;
+    background:#000;
+    margin-bottom:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.45);
+  }
+  .viral-video { width:100%; height:100%; object-fit:cover; display:block; background:#000; }
+  .video-overlay-play {
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    z-index:2; margin:0;
+    box-shadow:0 8px 22px rgba(0,0,0,0.5);
+    transition: transform .25s ease, opacity .25s ease;
+  }
+  .video-frame.is-playing .video-overlay-play {
+    opacity:0;
+    transform:translate(-50%,-50%) scale(0.7);
+    pointer-events:none;
+  }
+  .video-frame::after {
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%);
+    pointer-events:none;
+    transition: opacity .25s ease;
+  }
+  .video-frame.is-playing::after { opacity:0; }
 
   /* ===== WAVEFORM PLAYER (driven by real <video>) ===== */
   .waveform {
@@ -538,11 +568,13 @@
       <a href="#eopVideo" class="viral-link" id="watchVideoLink">Watch the video &rarr;</a>
     </div>
     <div class="viral-visual">
-      <video class="viral-video-hidden" id="eopVideo" playsinline preload="metadata">
-        <source src="eop_rap_web.mp4" type="video/mp4" />
-        Your browser doesn't support embedded video.
-      </video>
-      <div class="play-icon" id="videoPlayBtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="video-frame">
+        <video class="viral-video" id="eopVideo" playsinline preload="metadata">
+          <source src="eop_rap_web.mp4" type="video/mp4" />
+          Your browser doesn't support embedded video.
+        </video>
+        <div class="play-icon video-overlay-play" id="videoPlayBtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
       <div class="viral-visual-title">SUNY EOP Awareness Rap</div>
       <div class="viral-visual-sub">State University of New York · 2025</div>
       <div class="waveform" id="waveform"></div>
@@ -964,20 +996,6 @@
   });
 
   renderRows(currentFilter);
-
-  // cycle filters once automatically so visitors see it's interactive
-  const sheetIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        setTimeout(() => {
-          const reachBtn = document.querySelector('[data-filter="reach"]');
-          if (reachBtn) reachBtn.click();
-        }, 1100);
-        sheetIO.disconnect();
-      }
-    });
-  }, { threshold: 0.4 });
-  sheetIO.observe(body);
 })();
 
 // ===== REAL WAVEFORM-DRIVEN VIDEO PLAYER =====
@@ -1026,6 +1044,8 @@
 
   function setPlayingIcon(isPlaying) {
     wf.classList.toggle('playing', isPlaying);
+    const frame = document.querySelector('.video-frame');
+    if (frame) frame.classList.toggle('is-playing', isPlaying);
     if (isPlaying) {
       playBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><rect x="6" y="5" width="4" height="14" fill="#0B1B2B"/><rect x="14" y="5" width="4" height="14" fill="#0B1B2B"/></svg>';
     } else {
@@ -1040,6 +1060,9 @@
       video.pause();
     }
   }
+
+  // Clicking the video itself also toggles play/pause
+  video.addEventListener('click', toggle);
 
   // Seek by clicking anywhere on the waveform
   wf.addEventListener('click', (e) => {
