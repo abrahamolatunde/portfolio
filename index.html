@@ -1075,6 +1075,11 @@
 
   playBtn.addEventListener('click', toggle);
 
+  video.addEventListener('error', () => {
+    timeLabel.textContent = '⚠ Video file missing — keep eop_rap_web.mp4 next to this HTML file';
+    timeLabel.style.color = '#ff8a8a';
+  });
+
   video.addEventListener('loadedmetadata', updateUI);
   video.addEventListener('timeupdate', updateUI);
   video.addEventListener('play', () => setPlayingIcon(true));
