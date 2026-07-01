@@ -228,7 +228,23 @@
     transform-style:preserve-3d;
     transition: transform 0.6s cubic-bezier(.2,.9,.3,1.2);
   }
-  .id-card.flipped .id-card-inner { transform: rotateY(180deg); }
+  
+
+  @keyframes badge-drop-spin {
+    0%   { transform: translateY(-140%) rotateY(0deg) rotateZ(-10deg); opacity:0; }
+    6%   { opacity:1; }
+    22%  { transform: translateY(8px) rotateY(180deg) rotateZ(5deg); }
+    42%  { transform: translateY(-5px) rotateY(360deg) rotateZ(-3deg); }
+    58%  { transform: translateY(3px) rotateY(540deg) rotateZ(1.5deg); }
+    72%  { transform: translateY(-2px) rotateY(630deg) rotateZ(-0.8deg); }
+    84%  { transform: translateY(1px) rotateY(680deg) rotateZ(0deg); }
+    100% { transform: translateY(0px) rotateY(720deg) rotateZ(0deg); opacity:1; }
+  }
+  .id-card.dropping {
+    animation: badge-drop-spin 3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+  }
+  .id-card.dropping .id-card-inner { transition: none !important; }
 
   .id-face {
     position:absolute; inset:0;
@@ -338,7 +354,7 @@
   .tag-row { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
   .tag { background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.3); color:var(--gold); font-size:10px; font-weight:600; padding:4px 10px; }
 
-  /* ===== EXPERIENCE + SKILLS MERGED — TIMELINE ===== */
+  /* ===== EXPERIENCE + SKILLS MERGED â TIMELINE ===== */
   #experience { background:var(--steel); }
   .exp-list { position:relative; padding-left:26px; }
   .exp-list::before {
@@ -443,7 +459,7 @@
   }
   .viral-video { width:100%; height:100%; object-fit:cover; display:block; background:#000; position:relative; z-index:1; }
 
-  /* Background blur layer — invisible until fullscreen */
+  /* Background blur layer â invisible until fullscreen */
   .viral-video-bg {
     display:none;
     position:absolute; inset:0;
@@ -454,7 +470,7 @@
     z-index:0;
   }
 
-  /* JS-controlled fullscreen state — more reliable across browsers than
+  /* JS-controlled fullscreen state â more reliable across browsers than
      relying on :fullscreen pseudo-class matching nested children */
   .video-frame.fs-active {
     background:var(--navy) !important;
@@ -467,7 +483,7 @@
     display:block;
   }
 
-  /* Fullscreen controls overlay — time remaining, auto-hides on inactivity */
+  /* Fullscreen controls overlay â time remaining, auto-hides on inactivity */
   .fs-controls {
     position:absolute; left:0; right:0; bottom:0;
     z-index:4;
@@ -586,7 +602,7 @@
 <section class="hero" id="home">
   <div class="hero-grid">
     <div>
-      <div class="hero-eyebrow">Business Development · Operations · Creative Strategy</div>
+      <div class="hero-eyebrow">Business Development Â· Operations Â· Creative Strategy</div>
       <h1 class="hero-name">Abraham<br /><span>Olatunde</span></h1>
       <p class="hero-line">I build pipelines, run operations, and once turned a rap into a statewide campaign. Drag my ID. Flip it. See for yourself.</p>
 
@@ -654,7 +670,7 @@
       <div class="edu-strip">
         <div class="edu-strip-left">
           <b>Binghamton University, SUNY</b>
-          B.A. Economics · Expected May 2028 · Dean's List Fall 2025
+          B.A. Economics Â· Expected May 2028 Â· Dean's List Fall 2025
         </div>
         <div class="edu-gpa-mini">
           <div class="num">3.45</div>
@@ -718,7 +734,7 @@
         </div>
       </div>
       <div class="viral-visual-title">SUNY EOP Awareness Rap</div>
-      <div class="viral-visual-sub">State University of New York · 2025</div>
+      <div class="viral-visual-sub">State University of New York Â· 2025</div>
       <div class="waveform" id="waveform"></div>
       <div class="player-time" id="waveformTime">Tap to play the full video</div>
       <div class="tag-row">
@@ -741,7 +757,7 @@
     <div class="exp-row">
       <div>
         <div class="exp-date">June 2026 &ndash; Present</div>
-        <div class="exp-org">NULLZEC Inc.<br/>(HyberX) · Remote</div>
+        <div class="exp-org">NULLZEC Inc.<br/>(HyberX) Â· Remote</div>
       </div>
       <div>
         <div class="exp-role">Business Development Rep Intern</div>
@@ -758,7 +774,7 @@
     <div class="exp-row">
       <div>
         <div class="exp-date">May 2026 &ndash; Present</div>
-        <div class="exp-org">Multicultural Resource<br/>Center · Binghamton, NY</div>
+        <div class="exp-org">Multicultural Resource<br/>Center Â· Binghamton, NY</div>
       </div>
       <div>
         <div class="exp-role">Student Manager</div>
@@ -902,10 +918,10 @@
 
     // Strap is a straight rod from the anchor to the card's hole point.
     // Rotating around its own top-center by `angle` radians produces
-    // exactly the same endpoint as cardCenterFromAngleLen() above —
+    // exactly the same endpoint as cardCenterFromAngleLen() above â
     // so the strap and the card can never point in different directions.
     // (Clamped at 0 so a negative `len` during the entrance fall, before
-    // the strap goes taut, doesn't produce invalid negative CSS height —
+    // the strap goes taut, doesn't produce invalid negative CSS height â
     // the strap just stays hidden/zero-length until the card falls into reach.)
     strap.style.height = Math.max(0, len) + 'px';
     strap.style.transform = `rotate(${angle}rad)`;
@@ -1013,10 +1029,37 @@
     const startAngle = 0.30; // starts tilted, like it was just released mid-swing
 
     angle = startAngle;
-    card.style.opacity = '1';
+    card.style.opacity = '';
 
     const FALL_MS = 950;
     const startTime = performance.now();
+
+    card.classList.add('dropping');
+    setTimeout(() => {
+      card.classList.remove('dropping');
+      card.style.opacity = '1';
+      const physicsStart = performance.now();
+      function fallTickDelayed(now) {
+        const elapsed = now - physicsStart;
+        if (elapsed < FALL_MS) {
+          const t = elapsed / FALL_MS;
+          len = fallStartLen + (restLen - fallStartLen) * easeInQuad(t);
+          angle = startAngle * (1 - easeInQuad(t)) * 0.6;
+          render();
+          requestAnimationFrame(fallTickDelayed);
+          return;
+        }
+        len = restLen;
+        lenVel = -6;
+        angle = startAngle * 0.22;
+        angleVel = -0.018;
+        settled = true;
+        render();
+        requestAnimationFrame(fallTick);
+      }
+      requestAnimationFrame(fallTickDelayed);
+    }, 3000);
+    return;
 
     function easeInQuad(t) { return t * t; }
 
@@ -1111,7 +1154,7 @@
   metrics.forEach(m => io2.observe(m));
 })();
 
-// ===== MINI SPREADSHEET — MULTI-FILTER =====
+// ===== MINI SPREADSHEET â MULTI-FILTER =====
 (function(){
   const body = document.getElementById('sheetBody');
   const filterBtns = document.querySelectorAll('.sheet-filter-btn');
@@ -1221,7 +1264,7 @@
       const isCurrentlyFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement);
 
       if (isCurrentlyFullscreen) {
-        // Already fullscreen — this click should EXIT, not re-request
+        // Already fullscreen â this click should EXIT, not re-request
         if (document.exitFullscreen) document.exitFullscreen();
         else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
         else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
@@ -1319,7 +1362,7 @@
     fsProgressFill.style.width = dur ? `${(cur / dur) * 100}%` : '0%';
   });
 
-  // Build waveform bars (visual only — playback is driven by the real video)
+  // Build waveform bars (visual only â playback is driven by the real video)
   const BAR_COUNT = 46;
   let seed = 7;
   function rand() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
@@ -1388,7 +1431,7 @@
   playBtn.addEventListener('click', toggle);
 
   video.addEventListener('error', () => {
-    timeLabel.textContent = '⚠ Video file missing — keep eop_rap_web.mp4 next to this HTML file';
+    timeLabel.textContent = 'â  Video file missing â keep eop_rap_web.mp4 next to this HTML file';
     timeLabel.style.color = '#ff8a8a';
   });
 
@@ -1398,7 +1441,7 @@
   video.addEventListener('pause', () => setPlayingIcon(false));
   video.addEventListener('ended', () => {
     setPlayingIcon(false);
-    timeLabel.textContent = 'Played in full — tap to replay';
+    timeLabel.textContent = 'Played in full â tap to replay';
   });
 
   if (watchLink) {
