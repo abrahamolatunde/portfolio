@@ -23,6 +23,7 @@
     overflow-x:hidden;
   }
 
+
   /* ===== NAV ===== */
   nav {
     position:fixed; top:0; left:0; right:0; z-index:200;
@@ -36,6 +37,7 @@
   .nav-links { display:flex; gap:28px; list-style:none; }
   .nav-links a { font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
   .nav-links a:hover { color:var(--gold); }
+
 
   /* ===== HERO / LANYARD ZONE ===== */
   .hero {
@@ -79,6 +81,7 @@
   }
   .hero-tap-hint svg { width:14px; height:14px; animation: bobArrow 1.6s ease-in-out infinite; }
 
+
   /* ===== MINI SPREADSHEET ===== */
   .sheet {
     margin-top:24px;
@@ -99,6 +102,7 @@
   .sheet-icon { width:14px; height:14px; border-radius:3px; background:#1d6f42; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:800; color:#fff; font-family:'Inter',sans-serif; }
   .sheet-label { font-size:10.5px; color:var(--muted); font-family:'Inter',sans-serif; }
 
+
   .sheet-filters {
     display:flex; flex-wrap:wrap; gap:6px;
     padding:9px 12px;
@@ -116,6 +120,7 @@
     color:var(--navy); background:var(--gold); border-color:var(--gold); font-weight:700;
   }
 
+
   .sheet-table { width:100%; border-collapse:collapse; font-family:'Inter',sans-serif; }
   .sheet-table thead th {
     text-align:left; font-size:9.5px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase;
@@ -131,6 +136,7 @@
   .sheet-row td:last-child { text-align:right; font-weight:700; color:var(--gold-light); font-variant-numeric:tabular-nums; }
   .sheet-row.moving td { background:rgba(201,168,76,0.06); }
   @keyframes bobArrow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
+
 
   /* ===== LANYARD ===== */
   .lanyard-zone {
@@ -179,6 +185,7 @@
     box-shadow:0 2px 4px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.15);
   }
 
+
   .lanyard-clip {
     position:absolute;
     width:26px; height:30px;
@@ -209,6 +216,7 @@
     box-shadow:0 1px 2px rgba(0,0,0,0.4);
   }
 
+
   .id-card {
     position:absolute;
     width:230px;
@@ -230,6 +238,7 @@
   }
   .id-card.flipped .id-card-inner { transform: rotateY(180deg); }
 
+
   .id-face {
     position:absolute; inset:0;
     backface-visibility:hidden;
@@ -241,6 +250,7 @@
     display:flex; flex-direction:column;
   }
   .id-face.back { transform: rotateY(180deg); }
+
 
   .id-hole {
     position:absolute; top:14px; left:50%; transform:translateX(-50%);
@@ -286,12 +296,14 @@
     margin-top:16px; padding-top:14px; border-top:1px solid rgba(201,168,76,0.15);
   }
 
+
   /* ===== SECTION SHARED ===== */
   section { padding:80px 50px; max-width:1300px; margin:0 auto; }
   .section-eyebrow { font-size:10px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
   .section-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(34px,4vw,58px); line-height:1; margin-bottom:14px; }
   .section-sub { font-size:14px; color:var(--muted); max-width:560px; line-height:1.6; margin-bottom:36px; }
   .divider { width:42px; height:2px; background:var(--gold); margin-bottom:28px; }
+
 
   /* ===== ABOUT (with education folded in) ===== */
   #about { background:var(--steel); }
@@ -309,10 +321,12 @@
   .edu-gpa-mini .num { font-family:'Bebas Neue',sans-serif; font-size:26px; color:var(--gold); line-height:1; }
   .edu-gpa-mini .lbl { font-size:8.5px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); }
 
+
   .about-cards { display:flex; flex-direction:column; gap:12px; }
   .info-card { background:rgba(11,27,43,0.5); border:1px solid rgba(201,168,76,0.18); padding:16px 18px; }
   .info-card-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
   .info-card-value { font-size:13px; color:#fff; line-height:1.5; }
+
 
   /* ===== VIRAL (kept as-is, it's the proof piece) ===== */
   #viral { position:relative; }
@@ -329,14 +343,16 @@
   .metric-label { font-size:10.5px; color:var(--muted); margin-top:3px; }
   .viral-link { display:inline-flex; align-items:center; gap:8px; margin-top:20px; font-size:12px; font-weight:700; color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:2px; }
 
+
   .viral-visual { background:var(--steel); border:1px solid rgba(201,168,76,0.2); padding:32px; text-align:center; }
   .play-icon { width:64px; height:64px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; cursor:pointer; transition:transform .2s; }
-  .play-icon:hover { transform:scale(1.08); }
+  .play-icon:hover { transform:translate(-50%,-50%) scale(1.08); }
   .play-icon svg { width:22px; height:22px; fill:var(--navy); margin-left:3px; }
   .viral-visual-title { font-family:'DM Serif Display',serif; font-size:18px; margin-bottom:6px; }
   .viral-visual-sub { font-size:12px; color:var(--muted); margin-bottom:18px; }
   .tag-row { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
   .tag { background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.3); color:var(--gold); font-size:10px; font-weight:600; padding:4px 10px; }
+
 
   /* ===== EXPERIENCE + SKILLS MERGED — TIMELINE ===== */
   #experience { background:var(--steel); }
@@ -376,6 +392,8 @@
   .exp-proof { display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:11.5px; font-weight:700; color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:1px; width:fit-content; }
 
 
+
+
   /* ===== CONTACT ===== */
   #contact { text-align:center; }
   .contact-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,6vw,80px); line-height:1; margin-bottom:16px; }
@@ -385,9 +403,11 @@
   .contact-link { display:flex; align-items:center; gap:14px; font-size:13px; color:rgba(255,255,255,0.78); text-decoration:none; padding:13px 28px; border:1px solid rgba(255,255,255,0.1); width:100%; max-width:380px; transition:border-color .2s,color .2s; }
   .contact-link:hover { border-color:var(--gold); color:var(--gold); }
 
+
   footer { background:#060f18; padding:20px 50px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(201,168,76,0.1); }
   .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:3px; color:var(--gold); }
   .footer-copy { font-size:11px; color:var(--muted); }
+
 
   @media (max-width:900px) {
     nav { padding:14px 22px; }
@@ -395,7 +415,8 @@
     .hero { padding:100px 22px 50px; flex-direction:column; }
     .hero-grid { grid-template-columns:1fr; gap:50px; text-align:center; }
     .hero-line { margin-left:auto; margin-right:auto; }
-    .lanyard-zone { height:440px; }
+    .lanyard-zone { height:440px; display:flex; justify-content:center; align-items:flex-start; overflow:visible; }
+    .hero { overflow:visible; }
     section { padding:60px 22px; }
     .about-wrap, .viral-wrap, .exp-row { grid-template-columns:1fr; gap:24px; }
     footer { flex-direction:column; gap:10px; padding:20px; text-align:center; }
@@ -411,10 +432,12 @@
   .reveal-stagger.in-view > *:nth-child(5) { transition-delay:.34s; }
   .reveal-stagger.in-view > * { opacity:1; transform:translateY(0); }
 
+
   .info-card, .metric-card, .exp-row, .contact-link {
     transition: transform .25s ease, border-color .25s ease, background .25s ease;
   }
   .info-card:hover, .metric-card:hover { transform:translateY(-4px); border-color:rgba(201,168,76,0.5); }
+
 
   /* Magnetic tilt for metric cards */
   .metric-card { transform-style:preserve-3d; will-change:transform; }
@@ -426,7 +449,8 @@
   .exp-skill-tag:hover { background:rgba(201,168,76,0.22); transform:translateY(-1px); }
   .contact-link:hover { transform:translateX(6px); }
   .tag, .edu-strip, .id-photo-wrap { transition: transform .25s ease; }
-  .viral-visual:hover .play-icon { transform:scale(1.12) rotate(6deg); }
+  .viral-visual:hover .play-icon { transform:translate(-50%,-50%) scale(1.12); }
+
 
   /* ===== VISIBLE VIDEO FRAME ===== */
   .video-frame {
@@ -443,6 +467,7 @@
   }
   .viral-video { width:100%; height:100%; object-fit:cover; display:block; background:#000; position:relative; z-index:1; }
 
+
   /* Background blur layer — invisible until fullscreen */
   .viral-video-bg {
     display:none;
@@ -453,6 +478,7 @@
     transform:scale(1.15);
     z-index:0;
   }
+
 
   /* JS-controlled fullscreen state — more reliable across browsers than
      relying on :fullscreen pseudo-class matching nested children */
@@ -466,6 +492,7 @@
   .video-frame.fs-active .viral-video-bg {
     display:block;
   }
+
 
   /* Fullscreen controls overlay — time remaining, auto-hides on inactivity */
   .fs-controls {
@@ -504,6 +531,7 @@
   .fs-exit-btn:hover { background:rgba(255,255,255,0.22); }
   .fs-exit-btn svg { width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2; }
 
+
   .video-overlay-play {
     position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
     z-index:2; margin:0;
@@ -524,6 +552,7 @@
   }
   .video-frame.is-playing::after { opacity:0; }
 
+
   .fullscreen-btn {
     position:absolute; bottom:10px; right:10px;
     width:30px; height:30px; z-index:3;
@@ -540,6 +569,84 @@
   .fullscreen-btn:hover { background:rgba(201,168,76,0.25); }
   .fullscreen-btn svg { width:15px; height:15px; fill:none; stroke:var(--gold-light); stroke-width:2; }
 
+  /* ===== DOT-MENU (⋯) ===== */
+  .dot-menu-wrap { position:absolute; top:10px; right:10px; z-index:10; }
+  .dot-menu-btn {
+    width:30px; height:30px; border-radius:5px;
+    background:rgba(11,27,43,0.7); border:1px solid rgba(201,168,76,0.4);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; color:var(--gold-light); font-size:18px; line-height:1;
+    opacity:0; transition:opacity .2s ease, background .2s ease;
+    user-select:none;
+  }
+  .video-frame:hover .dot-menu-btn,
+  .video-frame.is-playing .dot-menu-btn,
+  .dot-menu-btn:focus { opacity:1; outline:none; }
+  .dot-menu-btn:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  .dot-menu-btn:hover { background:rgba(201,168,76,0.25); }
+  .dot-menu {
+    position:absolute; top:36px; right:0; min-width:168px;
+    background:rgba(11,27,43,0.96); border:1px solid rgba(201,168,76,0.3);
+    border-radius:8px; padding:6px 0; z-index:20;
+    box-shadow:0 8px 24px rgba(0,0,0,0.5);
+    display:none; flex-direction:column;
+  }
+  .dot-menu.open { display:flex; }
+  .dot-menu-item {
+    padding:9px 16px; color:#fff; font-size:13px; cursor:pointer;
+    display:flex; align-items:center; gap:10px;
+    background:none; border:none; text-align:left; width:100%;
+    transition:background .15s;
+  }
+  .dot-menu-item:hover,
+  .dot-menu-item:focus { background:rgba(201,168,76,0.18); outline:none; }
+  .dot-menu-item:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
+  .dot-menu-item svg { width:15px; height:15px; flex-shrink:0; fill:none; stroke:currentColor; stroke-width:2; }
+  /* Speed sub-menu */
+  .speed-sub {
+    position:absolute; top:0; right:calc(100% + 4px);
+    min-width:120px; background:rgba(11,27,43,0.96);
+    border:1px solid rgba(201,168,76,0.3); border-radius:8px;
+    padding:6px 0; display:none; flex-direction:column;
+    box-shadow:0 8px 24px rgba(0,0,0,0.5);
+  }
+  .dot-menu-item.has-sub { position:relative; }
+  .dot-menu-item.has-sub:hover .speed-sub,
+  .dot-menu-item.has-sub:focus-within .speed-sub { display:flex; }
+  .speed-sub-item {
+    padding:8px 16px; color:#fff; font-size:13px; cursor:pointer;
+    background:none; border:none; text-align:left; width:100%;
+    transition:background .15s;
+  }
+  .speed-sub-item:hover,
+  .speed-sub-item:focus { background:rgba(201,168,76,0.18); outline:none; }
+  .speed-sub-item.active { color:var(--gold); font-weight:600; }
+  /* ARIA live region */
+  #videoLiveRegion { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+
+
+
+
+  /* ===== KEYBOARD FOCUS OUTLINES ===== */
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .id-card:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+    border-radius: 14px;
+  }
+  .fullscreen-btn:focus-visible {
+    opacity:1;
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .play-icon:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 3px;
+  }
+
   /* ===== WAVEFORM PLAYER (driven by real <video>) ===== */
   .waveform {
     display:flex; align-items:flex-end; justify-content:center;
@@ -555,8 +662,10 @@
   @keyframes waveBob { 0%,100%{ transform:scaleY(1); } 50%{ transform:scaleY(0.55); } }
   .player-time { font-size:10px; color:var(--muted); font-family:'Courier New',monospace; margin-top:-4px; margin-bottom:4px; }
 
+
   .nav-logo { transition: transform .3s ease; cursor:pointer; }
   .nav-logo:hover { transform:rotate(-4deg) scale(1.08); }
+
 
   /* Animated underline on nav links */
   .nav-links a { position:relative; }
@@ -566,11 +675,13 @@
   }
   .nav-links a:hover::after { width:100%; }
 
+
   /* Metric numbers count up via JS, just style the container */
   .metric-num { transition: color .2s; }
 </style>
 </head>
 <body>
+
 
 <nav>
   <div class="nav-logo">A.O.</div>
@@ -582,6 +693,7 @@
   </ul>
 </nav>
 
+
 <!-- ===== HERO + LANYARD ===== -->
 <section class="hero" id="home">
   <div class="hero-grid">
@@ -589,6 +701,7 @@
       <div class="hero-eyebrow">Business Development · Operations · Creative Strategy</div>
       <h1 class="hero-name">Abraham<br /><span>Olatunde</span></h1>
       <p class="hero-line">I build pipelines, run operations, and once turned a rap into a statewide campaign. Drag my ID. Flip it. See for yourself.</p>
+
 
       <div class="sheet">
         <div class="sheet-bar">
@@ -612,10 +725,11 @@
       </div>
     </div>
 
+
     <div class="lanyard-zone" id="lanyardZone">
       <div class="lanyard-strap" id="strap"></div>
       <div class="lanyard-clip" id="clip"></div>
-      <div class="id-card" id="idCard">
+      <div class="id-card" id="idCard" tabindex="0" role="button" aria-label="ID card — press Enter or Space to flip" aria-pressed="false">
         <div class="id-card-inner" id="idCardInner">
           <div class="id-face front">
             <div class="id-hole"></div>
@@ -640,6 +754,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- ===== ABOUT (education folded in) ===== -->
 <section id="about">
@@ -679,6 +794,7 @@
   </div>
 </section>
 
+
 <!-- ===== VIRAL MOMENT (the proof piece) ===== -->
 <section id="viral">
   <div class="viral-wrap">
@@ -703,11 +819,11 @@
           <source src="eop_rap_web.mp4" type="video/mp4" />
           Your browser doesn't support embedded video.
         </video>
-        <div class="play-icon video-overlay-play" id="videoPlayBtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">
+        <button class="play-icon video-overlay-play" id="videoPlayBtn" aria-label="Play video" tabindex="0"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+        <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen" aria-label="Enter fullscreen" tabindex="0">
           <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-        </div>
-        <div class="fs-controls" id="fsControls">
+        </button>
+        <div class="fs-controls" role="toolbar" aria-label="Video controls" id="fsControls">
           <span class="fs-time" id="fsTime">0:00 / 0:00</span>
           <div class="fs-progress-track" id="fsProgressTrack">
             <div class="fs-progress-fill" id="fsProgressFill"></div>
@@ -715,6 +831,38 @@
           <div class="fs-exit-btn" id="fsExitBtn" title="Exit fullscreen">
             <svg viewBox="0 0 24 24"><path d="M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3M3 8V5a2 2 0 0 1 2-2h3"/></svg>
           </div>
+
+        <!-- ⋯ MORE MENU -->
+        <div class="dot-menu-wrap" id="dotMenuWrap">
+          <button class="dot-menu-btn" id="dotMenuBtn" aria-label="More options" aria-haspopup="true" aria-expanded="false" aria-controls="dotMenu" tabindex="0">⋯</button>
+          <div class="dot-menu" id="dotMenu" role="menu" aria-label="Video options">
+            <div class="dot-menu-item has-sub" role="menuitem" aria-haspopup="true" tabindex="-1" id="speedMenuItem">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Speed
+              <div class="speed-sub" role="menu" aria-label="Playback speed">
+                <button class="speed-sub-item" role="menuitem" tabindex="-1" data-speed="0.5">0.5×</button>
+                <button class="speed-sub-item active" role="menuitem" tabindex="-1" data-speed="1">1× (Normal)</button>
+                <button class="speed-sub-item" role="menuitem" tabindex="-1" data-speed="1.25">1.25×</button>
+                <button class="speed-sub-item" role="menuitem" tabindex="-1" data-speed="1.5">1.5×</button>
+                <button class="speed-sub-item" role="menuitem" tabindex="-1" data-speed="2">2×</button>
+              </div>
+            </div>
+            <button class="dot-menu-item" role="menuitem" tabindex="-1" id="pipMenuItem">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><rect x="11" y="11" width="10" height="8" rx="1"/></svg>
+              Picture in Picture
+            </button>
+            <button class="dot-menu-item" role="menuitem" tabindex="-1" id="shareMenuItem">
+              <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share
+            </button>
+            <button class="dot-menu-item" role="menuitem" tabindex="-1" id="translateMenuItem">
+              <svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+              Translate
+            </button>
+          </div>
+        </div>
+        <!-- ARIA live region for screen readers -->
+        <div id="videoLiveRegion" aria-live="polite" aria-atomic="true" role="status"></div>
         </div>
       </div>
       <div class="viral-visual-title">SUNY EOP Awareness Rap</div>
@@ -730,12 +878,14 @@
   </div>
 </section>
 
+
 <!-- ===== EXPERIENCE + SKILLS MERGED ===== -->
 <section id="experience">
   <div class="section-eyebrow">Work History</div>
   <h2 class="section-title reveal">Experience.</h2>
   <p class="section-sub">Skills attached to the work that proves them.</p>
   <div class="divider"></div>
+
 
   <div class="exp-list reveal-stagger">
     <div class="exp-row">
@@ -755,6 +905,7 @@
       </div>
     </div>
 
+
     <div class="exp-row">
       <div>
         <div class="exp-date">May 2026 &ndash; Present</div>
@@ -770,6 +921,7 @@
         </div>
       </div>
     </div>
+
 
     <div class="exp-row">
       <div>
@@ -787,6 +939,7 @@
       </div>
     </div>
 
+
     <div class="exp-row">
       <div>
         <div class="exp-date">Sept 2025 &ndash; Present</div>
@@ -803,6 +956,7 @@
         <a href="#viral" class="exp-proof">See the campaign &rarr;</a>
       </div>
     </div>
+
 
     <div class="exp-row">
       <div>
@@ -822,6 +976,7 @@
   </div>
 </section>
 
+
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="section-eyebrow">Let's Connect</div>
@@ -834,10 +989,12 @@
   </div>
 </section>
 
+
 <footer>
   <div class="footer-logo">Abraham Olatunde</div>
   <div class="footer-copy">&copy; 2026 Abraham Olatunde</div>
 </footer>
+
 
 <script>
 (function(){
@@ -847,6 +1004,7 @@
   const clip = document.getElementById('clip');
   const zone = document.getElementById('lanyardZone');
 
+
   // The lanyard is modeled as a rigid rod pivoting from a fixed anchor
   // point at the top. Instead of independently simulating the card's
   // x/y position and separately guessing the strap's rotation, we
@@ -855,7 +1013,9 @@
   // derived directly from that angle + length, so the strap and the
   // card can never visually disagree about where the card is.
 
+
   let anchorX = 0, anchorY = 0;
+
 
   const REST_LEN = 195;     // natural hanging length of the strap
   const MAX_LEN   = 290;    // how far it can stretch when pulled
@@ -864,20 +1024,24 @@
   const SPRING_K  = 0.16;   // how stiffly the length springs back to REST_LEN
   const SPRING_D  = 0.78;   // damping on the length spring
 
+
   let angle = 0;            // radians, 0 = straight down
   let angleVel = 0;
   let len = REST_LEN;
   let lenVel = 0;
+
 
   let dragging = false;
   let dragOffsetX = 0, dragOffsetY = 0;
   let hasDraggedThisGesture = false;
   let settled = true;       // true once the entrance drop has finished
 
+
   function getAnchor() {
     const zoneRect = zone.getBoundingClientRect();
     return { x: zoneRect.width / 2, y: 8 };
   }
+
 
   function cardCenterFromAngleLen() {
     // CSS rotate(positive deg/rad) spins CLOCKWISE. For a rod that points
@@ -891,14 +1055,17 @@
     };
   }
 
+
   function render() {
     const cardW = card.offsetWidth;
     const pos = cardCenterFromAngleLen();
+
 
     // Card top sits ~30px above its visual center so the lanyard hole
     // lines up with the strap's bottom end
     card.style.left = (pos.x - cardW / 2) + 'px';
     card.style.top  = (pos.y - 30) + 'px';
+
 
     // Strap is a straight rod from the anchor to the card's hole point.
     // Rotating around its own top-center by `angle` radians produces
@@ -912,15 +1079,18 @@
     strap.style.left = (anchorX - 3.5) + 'px';
     strap.style.top = anchorY + 'px';
 
+
     clip.style.left = (anchorX - 13) + 'px';
     clip.style.top = (anchorY - 6) + 'px';
   }
+
 
   function init() {
     const a = getAnchor();
     anchorX = a.x; anchorY = a.y;
     render();
   }
+
 
   function physicsStep() {
     if (!dragging && settled) {
@@ -930,6 +1100,7 @@
       angleVel *= DAMPING;
       angle += angleVel * 0.05;
 
+
       // Length spring: pulls back toward REST_LEN
       const lenAccel = (REST_LEN - len) * SPRING_K;
       lenVel += lenAccel;
@@ -937,10 +1108,12 @@
       len += lenVel;
       len = Math.max(60, Math.min(MAX_LEN, len));
 
+
       render();
     }
     requestAnimationFrame(physicsStep);
   }
+
 
   function pointerDown(e) {
     if (!settled) return; // ignore drags during the entrance drop
@@ -955,6 +1128,7 @@
     e.preventDefault();
   }
 
+
   function pointerMove(e) {
     if (!dragging) return;
     const point = e.touches ? e.touches[0] : e;
@@ -962,33 +1136,43 @@
     const targetX = (point.clientX - rect.left) - dragOffsetX;
     const targetY = (point.clientY - rect.top) - dragOffsetY;
 
+
     const dx = targetX - anchorX;
     const dy = targetY - anchorY;
     const dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
     const newAngle = Math.atan2(-dx, dy);
 
+
     if (Math.abs(newAngle - angle) > 0.01 || Math.abs(dist - len) > 2) {
       hasDraggedThisGesture = true;
     }
 
+
     angleVel = (newAngle - angle) * 0.6;
     angle = newAngle;
+
 
     lenVel = (Math.min(dist, MAX_LEN) - len) * 0.6;
     len = Math.min(dist, MAX_LEN);
 
+
     render();
   }
+
 
   function pointerUp() {
     if (!dragging) return;
     dragging = false;
     card.classList.remove('dragging');
 
+
     if (!hasDraggedThisGesture) {
       card.classList.toggle('flipped');
+      const flipped = card.classList.contains('flipped');
+      card.setAttribute('aria-pressed', String(flipped));
     }
   }
+
 
   card.addEventListener('mousedown', pointerDown);
   card.addEventListener('touchstart', pointerDown, {passive:false});
@@ -998,30 +1182,54 @@
   window.addEventListener('touchend', pointerUp);
   window.addEventListener('resize', init);
 
+  // ===== MOBILE CENTERING: re-anchor on visual viewport changes =====
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', init);
+  }
+
+  // ===== KEYBOARD: Enter/Space flips card =====
+  card.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      card.classList.toggle('flipped');
+      const flipped = card.classList.contains('flipped');
+      card.setAttribute('aria-pressed', String(flipped));
+    }
+  });
+
+
+
   // ===== ENTRANCE: swings in from an angle like a real dropped lanyard =====
   function playEntrance() {
     settled = false;
     lenVel = 0;
+
 
     const hero = document.querySelector('.hero');
     if (hero) hero.style.overflow = 'visible';
     strap.style.visibility = 'visible';
     clip.style.visibility = 'visible';
 
+
     const restLen = REST_LEN;
     const fallStartLen = -(anchorY + 560);
     const startAngle = 0.30; // starts tilted, like it was just released mid-swing
 
+
     angle = startAngle;
     card.style.opacity = '1';
+
 
     const FALL_MS = 950;
     const startTime = performance.now();
 
+
     function easeInQuad(t) { return t * t; }
+
 
     function fallTick(now) {
       const elapsed = now - startTime;
+
 
       if (elapsed < FALL_MS) {
         const t = elapsed / FALL_MS;
@@ -1033,6 +1241,7 @@
         requestAnimationFrame(fallTick);
         return;
       }
+
 
       // Hand off into the real pendulum physics already running in
       // physicsStep(): give it a starting swing velocity so it keeps
@@ -1047,8 +1256,10 @@
       if (hero) hero.style.overflow = 'clip';
     }
 
+
     requestAnimationFrame(fallTick);
   }
+
 
   init();
   card.style.opacity = '0';
@@ -1057,7 +1268,9 @@
   requestAnimationFrame(physicsStep);
   setTimeout(playEntrance, 400);
 
+
 })();
+
 
 // ===== SCROLL REVEAL =====
 (function(){
@@ -1073,10 +1286,12 @@
   targets.forEach(t => io.observe(t));
 })();
 
+
 // ===== ANIMATED METRIC COUNT-UP =====
 (function(){
   const metrics = document.querySelectorAll('.metric-num');
   const animated = new WeakSet();
+
 
   function countUp(el) {
     const raw = el.textContent.trim();
@@ -1086,6 +1301,7 @@
     const suffix = match[2] || '';
     const duration = 1100;
     const start = performance.now();
+
 
     function tick(now) {
       const p = Math.min((now - start) / duration, 1);
@@ -1098,6 +1314,7 @@
     requestAnimationFrame(tick);
   }
 
+
   const io2 = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting && !animated.has(e.target)) {
@@ -1108,8 +1325,10 @@
     });
   }, { threshold: 0.5 });
 
+
   metrics.forEach(m => io2.observe(m));
 })();
+
 
 // ===== MINI SPREADSHEET — MULTI-FILTER =====
 (function(){
@@ -1117,6 +1336,7 @@
   const filterBtns = document.querySelectorAll('.sheet-filter-btn');
   const colHead = document.getElementById('sheetColHead');
   if (!body || !filterBtns.length) return;
+
 
   // Real data, each row tagged with everything needed across all filters
   const data = [
@@ -1126,6 +1346,7 @@
     { role: 'MRC',           impact: 100,   startDate: '2026-05-01', reach: 100,   az: 'MRC',             display: { impact:'100+ weekly',    recent:'May 2026',  reach:'100+ weekly',   az:'100+ weekly'   } },
   ];
 
+
   const filterConfig = {
     impact: { label: 'Impact',  sortKey: r => -r.impact,                          key: 'impact' },
     recent: { label: 'Since',   sortKey: r => -new Date(r.startDate).getTime(),   key: 'recent' },
@@ -1133,7 +1354,9 @@
     az:     { label: 'Role',    sortKey: r => r.az.toLowerCase(),                 key: 'az'     },
   };
 
+
   let currentFilter = 'impact';
+
 
   function renderRows(filterName) {
     const cfg = filterConfig[filterName];
@@ -1145,10 +1368,12 @@
       return 0;
     });
 
+
     // FLIP: record first positions of existing rows
     const existingRows = Array.from(body.children);
     const first = {};
     existingRows.forEach(r => { first[r.dataset.role] = r.getBoundingClientRect().top; });
+
 
     body.innerHTML = '';
     sorted.forEach(d => {
@@ -1158,6 +1383,7 @@
       tr.innerHTML = `<td>${d.role}</td><td>${d.display[cfg.key]}</td>`;
       body.appendChild(tr);
     });
+
 
     // play: animate from old position to new
     const newRows = Array.from(body.children);
@@ -1176,6 +1402,7 @@
     });
   }
 
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
@@ -1186,28 +1413,42 @@
     });
   });
 
+
   renderRows(currentFilter);
 })();
 
+
 // ===== REAL WAVEFORM-DRIVEN VIDEO PLAYER =====
 (function(){
-  const video = document.getElementById('eopVideo');
-  const videoBg = document.getElementById('eopVideoBg');
-  const wf = document.getElementById('waveform');
-  const playBtn = document.getElementById('videoPlayBtn');
-  const timeLabel = document.getElementById('waveformTime');
-  const watchLink = document.getElementById('watchVideoLink');
-  const fullscreenBtn = document.getElementById('fullscreenBtn');
-  const videoFrame = document.querySelector('.video-frame');
+  const video    = document.getElementById('eopVideo');
+  const videoBg  = document.getElementById('eopVideoBg');
+  const wf       = document.getElementById('waveform');
+  const timeEl   = document.getElementById('waveformTime');
+  const playBtn  = document.getElementById('videoPlayBtn');
+  const frame    = playBtn && playBtn.closest ? playBtn.closest('.video-frame') : null;
+  const fullscreenBtn  = document.getElementById('fullscreenBtn');
+  const fsControls     = document.getElementById('fsControls');
+  const fsTime         = document.getElementById('fsTime');
+  const fsProgressTrack= document.getElementById('fsProgressTrack');
+  const fsProgressFill = document.getElementById('fsProgressFill');
+  const fsExitBtn      = document.getElementById('fsExitBtn');
+  const watchLink      = document.querySelector('[href="#viral"]');
+  const liveRegion     = document.getElementById('videoLiveRegion');
+
+  // ⋯ menu elements
+  const dotMenuBtn    = document.getElementById('dotMenuBtn');
+  const dotMenu       = document.getElementById('dotMenu');
+  const pipMenuItem   = document.getElementById('pipMenuItem');
+  const shareMenuItem = document.getElementById('shareMenuItem');
+  const translateMenuItem = document.getElementById('translateMenuItem');
+  const speedMenuItems = dotMenu ? dotMenu.querySelectorAll('.speed-sub-item') : [];
+
   if (!video || !wf || !playBtn) return;
 
   // Keep the blurred background mirror in lockstep with the main video.
-  // It's muted and only visually shown while in fullscreen, but we sync
-  // play/pause/seek always so it's ready the instant fullscreen opens.
   if (videoBg) {
-    video.addEventListener('play', () => { videoBg.currentTime = video.currentTime; videoBg.play().catch(() => {}); });
+    video.addEventListener('play',  () => videoBg.play().catch(()=>{}));
     video.addEventListener('pause', () => videoBg.pause());
-    video.addEventListener('seeked', () => { videoBg.currentTime = video.currentTime; });
     video.addEventListener('timeupdate', () => {
       if (Math.abs(videoBg.currentTime - video.currentTime) > 0.4) {
         videoBg.currentTime = video.currentTime;
@@ -1215,197 +1456,329 @@
     });
   }
 
+  // ===== ARIA live region helper =====
+  function announce(msg) {
+    if (liveRegion) {
+      liveRegion.textContent = '';
+      requestAnimationFrame(() => { liveRegion.textContent = msg; });
+    }
+  }
+
+  // ===== FULLSCREEN STATE =====
+  let isCurrentlyFullscreen = false;
+
+  function onFullscreenChange() {
+    isCurrentlyFullscreen = !!(
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement
+    );
+    if (frame) {
+      frame.classList.toggle('fs-active', isCurrentlyFullscreen);
+      if (fsControls) fsControls.classList.toggle('fs-visible', isCurrentlyFullscreen);
+    }
+    if (fullscreenBtn) {
+      fullscreenBtn.setAttribute('aria-label', isCurrentlyFullscreen ? 'Exit fullscreen' : 'Enter fullscreen');
+    }
+    announce(isCurrentlyFullscreen ? 'Entered fullscreen' : 'Exited fullscreen');
+  }
+
+  document.addEventListener('fullscreenchange',       onFullscreenChange);
+  document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+  document.addEventListener('mozfullscreenchange',    onFullscreenChange);
+
   if (fullscreenBtn) {
     fullscreenBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isCurrentlyFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement);
-
       if (isCurrentlyFullscreen) {
-        // Already fullscreen — this click should EXIT, not re-request
         if (document.exitFullscreen) document.exitFullscreen();
         else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
         else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
         return;
       }
-
-      const target = videoFrame || video;
+      const target = frame || video;
       if (target.requestFullscreen) target.requestFullscreen();
-      else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen(); // iOS Safari (video-only fullscreen)
-      else if (target.webkitRequestFullscreen) target.webkitRequestFullscreen();
-      else if (target.mozRequestFullScreen) target.mozRequestFullScreen();
+      else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
     });
   }
 
-  // ===== FULLSCREEN STATE: drive everything off real fullscreenchange events =====
-  const fsControls = document.getElementById('fsControls');
-  const fsTime = document.getElementById('fsTime');
-  const fsProgressTrack = document.getElementById('fsProgressTrack');
-  const fsProgressFill = document.getElementById('fsProgressFill');
-  const fsExitBtn = document.getElementById('fsExitBtn');
-
-  function fmtTime(s) {
+  // ===== WAVEFORM UI =====
+  function fmt(s) {
     if (!isFinite(s)) return '0:00';
     const m = Math.floor(s / 60);
     const sec = Math.floor(s % 60);
-    return `${m}:${sec < 10 ? '0' + sec : sec}`;
-  }
-
-  function isFullscreenNow() {
-    return !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement);
-  }
-
-  let hideControlsTimer = null;
-  function showFsControls() {
-    if (!fsControls) return;
-    fsControls.classList.add('fs-visible');
-    clearTimeout(hideControlsTimer);
-    hideControlsTimer = setTimeout(() => {
-      fsControls.classList.remove('fs-visible');
-    }, 2600);
-  }
-
-  function onFullscreenChange() {
-    const active = isFullscreenNow();
-    if (videoFrame) videoFrame.classList.toggle('fs-active', active);
-    if (active) {
-      showFsControls();
-    } else {
-      clearTimeout(hideControlsTimer);
-      if (fsControls) fsControls.classList.remove('fs-visible');
-    }
-  }
-
-  document.addEventListener('fullscreenchange', onFullscreenChange);
-  document.addEventListener('webkitfullscreenchange', onFullscreenChange);
-  document.addEventListener('mozfullscreenchange', onFullscreenChange);
-
-  // Mouse movement while fullscreen reveals the time/progress/exit bar
-  if (videoFrame) {
-    videoFrame.addEventListener('mousemove', () => {
-      if (isFullscreenNow()) showFsControls();
-    });
-    videoFrame.addEventListener('click', (e) => {
-      // clicking the video area itself (not a control) toggles play, and also
-      // counts as activity so controls don't vanish mid-interaction
-      if (isFullscreenNow()) showFsControls();
-    });
-  }
-
-  if (fsExitBtn) {
-    fsExitBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (document.exitFullscreen) document.exitFullscreen();
-      else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-      else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-    });
-  }
-
-  if (fsProgressTrack) {
-    fsProgressTrack.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const rect = fsProgressTrack.getBoundingClientRect();
-      const pct = (e.clientX - rect.left) / rect.width;
-      if (video.duration) video.currentTime = pct * video.duration;
-      showFsControls();
-    });
-  }
-
-  // Update the fullscreen time readout + progress bar on every tick
-  video.addEventListener('timeupdate', () => {
-    if (!fsTime || !fsProgressFill) return;
-    const dur = video.duration || 0;
-    const cur = video.currentTime || 0;
-    fsTime.textContent = `${fmtTime(cur)} / ${fmtTime(dur)}`;
-    fsProgressFill.style.width = dur ? `${(cur / dur) * 100}%` : '0%';
-  });
-
-  // Build waveform bars (visual only — playback is driven by the real video)
-  const BAR_COUNT = 46;
-  let seed = 7;
-  function rand() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
-  for (let i = 0; i < BAR_COUNT; i++) {
-    const base = 14 + rand() * 38;
-    const pulse = Math.sin(i * 0.4) * 10;
-    const h = Math.max(8, Math.min(54, base + pulse));
-    const bar = document.createElement('div');
-    bar.className = 'wave-bar';
-    bar.style.height = h + 'px';
-    wf.appendChild(bar);
-  }
-  const bars = wf.querySelectorAll('.wave-bar');
-
-  function formatTime(s) {
-    if (!isFinite(s)) return '0:00';
-    const m = Math.floor(s / 60);
-    const sec = Math.floor(s % 60);
-    return `${m}:${sec < 10 ? '0' + sec : sec}`;
-  }
-
-  function setProgress(pct) {
-    const activeCount = Math.floor((pct / 100) * bars.length);
-    bars.forEach((b, i) => b.classList.toggle('played', i < activeCount));
+    return m + ':' + String(sec).padStart(2, '0');
   }
 
   function updateUI() {
-    const dur = video.duration || 0;
-    const cur = video.currentTime || 0;
-    const pct = dur ? (cur / dur) * 100 : 0;
-    setProgress(pct);
-    timeLabel.textContent = `${formatTime(cur)} / ${formatTime(dur)}`;
+    const pct = video.duration ? video.currentTime / video.duration : 0;
+    if (wf) {
+      wf.querySelectorAll('.bar').forEach((b, i, arr) => {
+        b.classList.toggle('lit', i / arr.length <= pct);
+      });
+    }
+    if (timeEl) timeEl.textContent = fmt(video.currentTime) + ' / ' + fmt(video.duration);
+    if (fsTime) fsTime.textContent = fmt(video.currentTime) + ' / ' + fmt(video.duration);
+    if (fsProgressFill) fsProgressFill.style.width = (pct * 100) + '%';
   }
 
-  function setPlayingIcon(isPlaying) {
-    wf.classList.toggle('playing', isPlaying);
-    const frame = document.querySelector('.video-frame');
+  function setPlayingUI(isPlaying) {
+    if (wf) wf.classList.toggle('playing', isPlaying);
     if (frame) frame.classList.toggle('is-playing', isPlaying);
-    if (isPlaying) {
-      playBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><rect x="6" y="5" width="4" height="14" fill="#0B1B2B"/><rect x="14" y="5" width="4" height="14" fill="#0B1B2B"/></svg>';
-    } else {
-      playBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+    if (playBtn) {
+      playBtn.setAttribute('aria-label', isPlaying ? 'Pause video' : 'Play video');
     }
   }
 
   function toggle() {
     if (video.paused) {
-      video.play().catch(() => {});
+      video.play();
+      announce('Video playing');
     } else {
       video.pause();
+      announce('Video paused');
     }
   }
 
-  // Clicking the video itself also toggles play/pause
-  video.addEventListener('click', toggle);
-
-  // Seek by clicking anywhere on the waveform
-  wf.addEventListener('click', (e) => {
-    const rect = wf.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
-    if (video.duration) {
-      video.currentTime = pct * video.duration;
+  // ===== DOUBLE-CLICK & F-KEY FULLSCREEN =====
+  video.addEventListener('dblclick', (e) => {
+    e.stopPropagation();
+    if (isCurrentlyFullscreen) {
+      if (document.exitFullscreen) document.exitFullscreen();
+      else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    } else {
+      const target = frame || video;
+      if (target.requestFullscreen) target.requestFullscreen();
+      else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
     }
   });
 
-  playBtn.addEventListener('click', toggle);
-
-  video.addEventListener('error', () => {
-    timeLabel.textContent = '⚠ Video file missing — keep eop_rap_web.mp4 next to this HTML file';
-    timeLabel.style.color = '#ff8a8a';
+  document.addEventListener('keydown', (e) => {
+    // F key — only when video frame is focused/hovered
+    if (e.key === 'f' || e.key === 'F') {
+      if (!frame || !frame.matches(':hover') && document.activeElement !== video &&
+          !frame.contains(document.activeElement)) return;
+      e.preventDefault();
+      if (isCurrentlyFullscreen) {
+        if (document.exitFullscreen) document.exitFullscreen();
+      } else {
+        const target = frame || video;
+        if (target.requestFullscreen) target.requestFullscreen();
+      }
+    }
   });
 
+  // ===== CLICK TO PLAY/PAUSE =====
+  video.addEventListener('click', toggle);
+  if (playBtn) playBtn.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
+  if (playBtn) playBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+  });
+
+  // ===== VIDEO EVENTS =====
+  video.addEventListener('play',  () => setPlayingUI(true));
+  video.addEventListener('pause', () => setPlayingUI(false));
+  video.addEventListener('ended', () => { setPlayingUI(false); announce('Video ended'); });
   video.addEventListener('loadedmetadata', updateUI);
   video.addEventListener('timeupdate', updateUI);
-  video.addEventListener('play', () => setPlayingIcon(true));
-  video.addEventListener('pause', () => setPlayingIcon(false));
-  video.addEventListener('ended', () => {
-    setPlayingIcon(false);
-    timeLabel.textContent = 'Played in full — tap to replay';
+
+  // ===== WAVEFORM SEEK =====
+  if (wf) {
+    wf.addEventListener('click', (e) => {
+      const rect = wf.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      if (video.duration) video.currentTime = pct * video.duration;
+    });
+  }
+
+  // ===== FS PROGRESS SEEK =====
+  if (fsProgressTrack) {
+    fsProgressTrack.addEventListener('click', (e) => {
+      const rect = fsProgressTrack.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      if (video.duration) video.currentTime = pct * video.duration;
+    });
+  }
+
+  // ===== FS EXIT BUTTON =====
+  if (fsExitBtn) {
+    fsExitBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (document.exitFullscreen) document.exitFullscreen();
+      else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    });
+  }
+
+  // ===== ⋯ DOT MENU =====
+  function closeDotMenu() {
+    if (!dotMenu) return;
+    dotMenu.classList.remove('open');
+    if (dotMenuBtn) {
+      dotMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function openDotMenu() {
+    if (!dotMenu) return;
+    dotMenu.classList.add('open');
+    if (dotMenuBtn) {
+      dotMenuBtn.setAttribute('aria-expanded', 'true');
+    }
+    // Focus first item
+    const first = dotMenu.querySelector('[role="menuitem"]');
+    if (first) first.focus();
+  }
+
+  if (dotMenuBtn) {
+    dotMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (dotMenu.classList.contains('open')) {
+        closeDotMenu();
+      } else {
+        openDotMenu();
+      }
+    });
+
+    // Arrow key navigation for dot menu
+    dotMenuBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openDotMenu();
+      }
+      if (e.key === 'Escape') closeDotMenu();
+    });
+  }
+
+  // Keyboard nav inside the dot menu
+  if (dotMenu) {
+    dotMenu.addEventListener('keydown', (e) => {
+      const items = Array.from(dotMenu.querySelectorAll('[role="menuitem"]:not(.has-sub .speed-sub [role="menuitem"])'));
+      const idx = items.indexOf(document.activeElement);
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (idx < items.length - 1) items[idx + 1].focus();
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (idx > 0) items[idx - 1].focus();
+        else if (dotMenuBtn) dotMenuBtn.focus();
+      }
+      if (e.key === 'Escape') {
+        closeDotMenu();
+        if (dotMenuBtn) dotMenuBtn.focus();
+      }
+      if (e.key === 'Tab') {
+        closeDotMenu();
+      }
+    });
+  }
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (dotMenu && !dotMenu.contains(e.target) && e.target !== dotMenuBtn) {
+      closeDotMenu();
+    }
   });
 
+  // ===== SPEED CONTROL =====
+  speedMenuItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const speed = parseFloat(item.dataset.speed);
+      if (!isNaN(speed)) {
+        video.playbackRate = speed;
+        if (videoBg) videoBg.playbackRate = speed;
+        speedMenuItems.forEach(si => si.classList.remove('active'));
+        item.classList.add('active');
+        announce('Playback speed set to ' + speed + 'x');
+      }
+      closeDotMenu();
+    });
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
+      if (e.key === 'Escape') { closeDotMenu(); if (dotMenuBtn) dotMenuBtn.focus(); }
+    });
+  });
+
+  // ===== PiP =====
+  if (pipMenuItem) {
+    pipMenuItem.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      try {
+        if (document.pictureInPictureElement) {
+          await document.exitPictureInPicture();
+          announce('Exited picture-in-picture');
+        } else if (document.pictureInPictureEnabled) {
+          await video.requestPictureInPicture();
+          announce('Entered picture-in-picture');
+        } else {
+          announce('Picture-in-picture not supported in this browser');
+        }
+      } catch(err) {
+        announce('Could not enter picture-in-picture');
+      }
+      closeDotMenu();
+    });
+    pipMenuItem.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pipMenuItem.click(); }
+      if (e.key === 'Escape') { closeDotMenu(); if (dotMenuBtn) dotMenuBtn.focus(); }
+    });
+  }
+
+  // ===== SHARE =====
+  if (shareMenuItem) {
+    shareMenuItem.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      try {
+        if (navigator.share) {
+          await navigator.share({
+            title: 'SUNY EOP Awareness Rap',
+            text: 'Check out this video by Abraham Olatunde!',
+            url: window.location.href
+          });
+          announce('Share dialog opened');
+        } else {
+          await navigator.clipboard.writeText(window.location.href);
+          announce('Link copied to clipboard');
+        }
+      } catch(err) {
+        announce('Could not share video');
+      }
+      closeDotMenu();
+    });
+    shareMenuItem.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); shareMenuItem.click(); }
+      if (e.key === 'Escape') { closeDotMenu(); if (dotMenuBtn) dotMenuBtn.focus(); }
+    });
+  }
+
+  // ===== TRANSLATE =====
+  if (translateMenuItem) {
+    translateMenuItem.addEventListener('click', (e) => {
+      e.stopPropagation();
+      announce('Opening translate');
+      const lang = navigator.language || 'en';
+      window.open('https://translate.google.com/?sl=' + lang + '&tl=en&op=translate', '_blank', 'noopener');
+      closeDotMenu();
+    });
+    translateMenuItem.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); translateMenuItem.click(); }
+      if (e.key === 'Escape') { closeDotMenu(); if (dotMenuBtn) dotMenuBtn.focus(); }
+    });
+  }
+
+  // ===== VIDEO ERROR =====
+  video.addEventListener('error', () => {
+    if (timeEl) timeEl.textContent = 'Video unavailable';
+    announce('Video failed to load');
+  });
+
+  // ===== WATCH LINK =====
   if (watchLink) {
     watchLink.addEventListener('click', (e) => {
       e.preventDefault();
       wf.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => video.play().catch(() => {}), 400);
+      setTimeout(() => video.play(), 400);
     });
   }
 })();
@@ -1432,6 +1805,7 @@
   });
 })();
 
+
 // ===== TIMELINE ACTIVE DOT ON SCROLL =====
 (function(){
   const rows = document.querySelectorAll('.exp-row');
@@ -1444,6 +1818,7 @@
   rows.forEach(r => tIO.observe(r));
 })();
 </script>
+
 
 </body>
 </html>
