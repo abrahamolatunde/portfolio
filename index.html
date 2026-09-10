@@ -168,14 +168,12 @@
     z-index:2;
   }
   .lanyard-strap::before {
-    /* subtle repeating fabric texture, like a woven cord catching light */
     content:'';
     position:absolute; inset:0;
     background:repeating-linear-gradient(180deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 5px);
     border-radius:4px;
   }
   .lanyard-strap::after {
-    /* the small black plastic crimp connecting cord to the card's hole */
     content:'';
     position:absolute; left:50%; bottom:-8px;
     width:16px; height:14px;
@@ -193,7 +191,6 @@
     visibility:hidden;
   }
   .lanyard-clip::before {
-    /* the metal swivel hook body */
     content:'';
     position:absolute; top:0; left:50%; transform:translateX(-50%);
     width:20px; height:20px;
@@ -207,7 +204,6 @@
       inset 0 -2px 3px rgba(0,0,0,0.4);
   }
   .lanyard-clip::after {
-    /* small gap/notch + lower tab where it grips the cord, reads as a real swivel clip */
     content:'';
     position:absolute; bottom:0; left:50%; transform:translateX(-50%);
     width:14px; height:14px;
@@ -468,7 +464,6 @@
   .viral-video { width:100%; height:100%; object-fit:cover; display:block; background:#000; position:relative; z-index:1; }
 
 
-  /* Background blur layer — invisible until fullscreen */
   .viral-video-bg {
     display:none;
     position:absolute; inset:0;
@@ -480,8 +475,6 @@
   }
 
 
-  /* JS-controlled fullscreen state — more reliable across browsers than
-     relying on :fullscreen pseudo-class matching nested children */
   .video-frame.fs-active {
     background:var(--navy) !important;
     display:flex; align-items:center; justify-content:center;
@@ -494,7 +487,6 @@
   }
 
 
-  /* Fullscreen controls overlay — time remaining, auto-hides on inactivity */
   .fs-controls {
     position:absolute; left:0; right:0; bottom:0;
     z-index:4;
@@ -602,7 +594,6 @@
   .dot-menu-item:focus { background:rgba(201,168,76,0.18); outline:none; }
   .dot-menu-item:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
   .dot-menu-item svg { width:15px; height:15px; flex-shrink:0; fill:none; stroke:currentColor; stroke-width:2; }
-  /* Speed sub-menu */
   .speed-sub {
     position:absolute; top:0; right:calc(100% + 4px);
     min-width:120px; background:rgba(11,27,43,0.96);
@@ -621,7 +612,6 @@
   .speed-sub-item:hover,
   .speed-sub-item:focus { background:rgba(201,168,76,0.18); outline:none; }
   .speed-sub-item.active { color:var(--gold); font-weight:600; }
-  /* ARIA live region */
   #videoLiveRegion { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
 
 
@@ -667,7 +657,6 @@
   .nav-logo:hover { transform:rotate(-4deg) scale(1.08); }
 
 
-  /* Animated underline on nav links */
   .nav-links a { position:relative; }
   .nav-links a::after {
     content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px;
@@ -676,7 +665,6 @@
   .nav-links a:hover::after { width:100%; }
 
 
-  /* Metric numbers count up via JS, just style the container */
   .metric-num { transition: color .2s; }
 </style>
 </head>
