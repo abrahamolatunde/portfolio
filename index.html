@@ -35,6 +35,7 @@
     font-family:'Inter',sans-serif;
     overflow-x:hidden;
   }
+  section { scroll-margin-top:72px; }
 
 
   /* ===== NAV ===== */
@@ -50,6 +51,18 @@
   .nav-links { display:flex; gap:28px; list-style:none; }
   .nav-links a { font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
   .nav-links a:hover { color:var(--gold); }
+  .nav-links a.nav-resume {
+    color:var(--gold-light);
+    border:1px solid rgba(201,168,76,.45);
+    padding:7px 10px;
+    margin:-8px 0;
+    transition:color .2s, background .2s, border-color .2s;
+  }
+  .nav-links a.nav-resume:hover {
+    color:var(--white);
+    background:rgba(201,168,76,.12);
+    border-color:var(--gold);
+  }
 
 
   /* ===== HERO / LANYARD ZONE ===== */
@@ -93,6 +106,38 @@
     opacity:0.85;
   }
   .hero-tap-hint svg { width:14px; height:14px; animation: bobArrow 1.6s ease-in-out infinite; }
+  .scroll-cue {
+    position:absolute;
+    left:50%;
+    bottom:22px;
+    transform:translateX(-50%);
+    z-index:5;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+    color:var(--muted);
+    text-decoration:none;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    transition:color .2s;
+  }
+  .scroll-cue:hover { color:var(--gold-light); }
+  .scroll-cue svg {
+    width:34px;
+    height:34px;
+    padding:8px;
+    border:1px solid rgba(201,168,76,.35);
+    border-radius:50%;
+    color:var(--gold);
+    animation:scrollCue 1.7s ease-in-out infinite;
+  }
+  @keyframes scrollCue {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(5px); }
+  }
 
 
   /* ===== MINI SPREADSHEET ===== */
@@ -413,11 +458,39 @@
   footer { background:#060f18; padding:20px 50px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(201,168,76,0.1); }
   .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:3px; color:var(--gold); }
   .footer-copy { font-size:11px; color:var(--muted); }
+  .back-to-top {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--gold-light);
+    text-decoration:none;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    padding:8px 10px;
+    border:1px solid rgba(201,168,76,.28);
+    transition:transform .2s, background .2s, border-color .2s;
+  }
+  .back-to-top:hover { transform:translateY(-2px); background:rgba(201,168,76,.1); border-color:var(--gold); }
+  .back-to-top svg { width:13px; height:13px; }
 
 
   @media (max-width:900px) {
-    nav { padding:14px 22px; }
-    .nav-links { display:none; }
+    nav { padding:13px 14px; gap:14px; }
+    .nav-logo { flex:0 0 auto; font-size:17px; }
+    .nav-links {
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      flex:1;
+      padding:8px 1px;
+      scrollbar-width:none;
+    }
+    .nav-links::-webkit-scrollbar { display:none; }
+    .nav-links li { flex:0 0 auto; }
+    .nav-links a { font-size:9.5px; letter-spacing:1px; }
+    .nav-links a.nav-resume { padding:6px 8px; margin:-7px 0; }
     .hero { padding:100px 22px 50px; flex-direction:column; }
     .hero-grid { grid-template-columns:1fr; gap:50px; text-align:center; }
     .hero-line { margin-left:auto; margin-right:auto; }
@@ -789,33 +862,6 @@
     transform:translate(-50%, 0);
   }
 
-  .resume-fab {
-    position:fixed;
-    right:22px;
-    bottom:22px;
-    z-index:190;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:11px 14px;
-    border:1px solid rgba(201,168,76,.55);
-    background:rgba(11,27,43,.88);
-    backdrop-filter:blur(10px);
-    color:var(--gold-light);
-    text-decoration:none;
-    font-size:10px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:1.2px;
-    box-shadow:0 10px 26px rgba(0,0,0,.3);
-    transition:transform .2s ease, background .2s ease, border-color .2s ease;
-  }
-  .resume-fab:hover {
-    transform:translateY(-3px);
-    background:rgba(201,168,76,.12);
-    border-color:var(--gold);
-  }
-
   #projects { position:relative; }
   .case-grid {
     display:grid;
@@ -1014,7 +1060,6 @@
 
   @media (max-width:900px) {
     .case-grid { grid-template-columns:1fr; }
-    .resume-fab { right:14px; bottom:14px; }
     .exp-category { opacity:1; transform:none; }
   }
 
@@ -1027,16 +1072,13 @@
   <div class="nav-logo">A.O.</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a class="nav-resume" href="Abraham_Olatunde_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
     <li><a href="#viral">Impact</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Work</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-
-<a class="resume-fab" href="Abraham_Olatunde_Resume.pdf" target="_blank" rel="noopener" aria-label="Open resume">
-  <span>Resume</span><span aria-hidden="true">↓</span>
-</a>
 
 
 
@@ -1103,6 +1145,12 @@
       </div>
     </div>
   </div>
+  <a class="scroll-cue" href="#about" aria-label="Scroll to the About section">
+    <span>Explore</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  </a>
 </section>
 
 
@@ -1571,6 +1619,12 @@
 <footer>
   <div class="footer-logo">Abraham Olatunde</div>
   <div class="footer-copy">&copy; 2026 Abraham Olatunde</div>
+  <a class="back-to-top" href="#home" aria-label="Back to the top of the page">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 15l6-6 6 6" />
+    </svg>
+    <span>Back to top</span>
+  </a>
 </footer>
 
 
