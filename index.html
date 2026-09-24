@@ -140,7 +140,8 @@
   }
   .section-next {
     width:fit-content;
-    margin:48px auto -20px;
+    min-height:44px;
+    margin:48px auto 0;
     display:flex;
     align-items:center;
     gap:9px;
@@ -516,8 +517,15 @@
     }
     .nav-links::-webkit-scrollbar { display:none; }
     .nav-links li { flex:0 0 auto; }
-    .nav-links a { font-size:9.5px; letter-spacing:1px; }
-    .nav-links a.nav-resume { padding:6px 8px; margin:-7px 0; }
+    .nav-links a {
+      display:block;
+      min-height:40px;
+      padding:8px 2px;
+      font-size:9.5px;
+      line-height:24px;
+      letter-spacing:1px;
+    }
+    .nav-links a.nav-resume { padding:8px 10px; margin:0; }
     .hero { padding:100px 22px 50px; flex-direction:column; }
     .hero-grid { grid-template-columns:1fr; gap:50px; text-align:center; }
     .hero-line { margin-left:auto; margin-right:auto; }
@@ -674,7 +682,7 @@
 
   /* ===== CUSTOM VIDEO LOADING STATE ===== */
   .viral-video {
-    opacity:0;
+    opacity:1;
     transition:opacity .25s ease;
   }
   .video-frame.video-ready .viral-video {
@@ -688,12 +696,14 @@
     align-items:center;
     justify-content:center;
     pointer-events:none;
-    background:#000;
-    transition:opacity .2s ease;
-  }
-  .video-frame.video-ready .video-loader {
+    background:rgba(6,15,24,.78);
     opacity:0;
     visibility:hidden;
+    transition:opacity .2s ease;
+  }
+  .video-frame.is-loading .video-loader {
+    opacity:1;
+    visibility:visible;
   }
   .video-loader-ring {
     width:28px;
@@ -1088,6 +1098,43 @@
   @media (max-width:900px) {
     .case-grid { grid-template-columns:1fr; }
     .exp-category { opacity:1; transform:none; }
+    .scroll-cue {
+      position:static;
+      transform:none;
+      margin:34px auto 0;
+    }
+    .section-next {
+      width:100%;
+      max-width:260px;
+      min-height:48px;
+      margin:36px auto 0;
+      padding:12px 16px;
+      justify-content:center;
+      font-size:10px;
+    }
+    .video-frame {
+      width:min(100%, 320px);
+      max-height:none;
+      margin-bottom:20px;
+    }
+    .viral-visual { padding:20px 14px; }
+    .video-overlay-play { width:64px; height:64px; }
+    .fullscreen-btn,
+    .dot-menu-btn {
+      width:44px;
+      height:44px;
+      opacity:1;
+    }
+    .fullscreen-btn { right:8px; bottom:8px; }
+    .dot-menu-wrap { top:8px; right:8px; }
+    .video-poster { padding:24px 18px 82px; }
+  }
+
+  @media (prefers-reduced-motion:reduce) {
+    html { scroll-behavior:auto; }
+    .scroll-cue svg,
+    .sheet-row,
+    .status-dot { animation:none !important; }
   }
 
 </style>
@@ -1240,10 +1287,10 @@
     </div>
     <div class="viral-visual">
       <div class="video-frame">
-        <video class="viral-video-bg" id="eopVideoBg" playsinline muted preload="auto" tabindex="-1">
+        <video class="viral-video-bg" id="eopVideoBg" playsinline muted preload="none" tabindex="-1">
           <source src="eop_rap_web.mp4" type="video/mp4" />
         </video>
-        <video class="viral-video" id="eopVideo" playsinline preload="auto">
+        <video class="viral-video" id="eopVideo" playsinline preload="metadata" poster="eop_video_poster.jpg" aria-label="SUNY EOP awareness campaign video">
           <source src="eop_rap_web.mp4" type="video/mp4" />
           Your browser doesn't support embedded video.
         </video>
@@ -2085,7 +2132,10 @@
   if (!video || !wf || !playBtn) return;
 
   function markVideoReady() {
-    if (frame) frame.classList.add('video-ready');
+    if (frame) {
+      frame.classList.add('video-ready');
+      frame.classList.remove('is-loading');
+    }
   }
 
   if (video.readyState >= 3) {
@@ -2096,10 +2146,14 @@
   }
 
   video.addEventListener('waiting', () => {
-    if (frame && !video.paused) frame.classList.remove('video-ready');
+    if (frame && !video.paused) frame.classList.add('is-loading');
   });
 
   video.addEventListener('playing', markVideoReady);
+  video.addEventListener('error', () => {
+    if (frame) frame.classList.remove('is-loading');
+    announce('Video could not load. Please try again.');
+  });
 
 
   if (videoBg) {
@@ -2185,7 +2239,14 @@
 
   function toggle() {
     if (video.paused) {
-      video.play();
+      if (frame && video.readyState < 3) frame.classList.add('is-loading');
+      const playAttempt = video.play();
+      if (playAttempt && typeof playAttempt.catch === 'function') {
+        playAttempt.catch(() => {
+          if (frame) frame.classList.remove('is-loading');
+          announce('Tap play to start the video.');
+        });
+      }
       announce('Video playing');
     } else {
       video.pause();
@@ -2509,8 +2570,8 @@
   if (!frame || !play || !video) return;
 
   const dismiss = () => frame.classList.add('poster-dismissed');
-  play.addEventListener('click', dismiss);
-  video.addEventListener('play', dismiss);
+  video.addEventListener('playing', dismiss);
+  video.addEventListener('ended', () => frame.classList.remove('poster-dismissed'));
 })();
 
 // ===== QUICK STAT COUNT-UP =====
